@@ -12,8 +12,7 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
 	cors: {
-		origin:
-			"https://648f3cb373a33f4d20c9df06--frabjous-sprinkles-2a4dad.netlify.app",
+		origin: "*",
 		methods: ["GET", "POST"],
 	},
 })
@@ -45,7 +44,7 @@ async function connect() {
 		await mongoose.connect(uri)
 		console.log("Connected to MongoDB")
 	} catch (e) {
-		console.log(e)
+		console.log("Couldn't connect to MongoDB")
 	}
 }
 
