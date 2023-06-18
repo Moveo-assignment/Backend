@@ -12,7 +12,8 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
 	cors: {
-		origin: "https://backend-roey-rach.onrender.com",
+		origin:
+			"https://648f3cb373a33f4d20c9df06--frabjous-sprinkles-2a4dad.netlify.app",
 		methods: ["GET", "POST"],
 	},
 })
