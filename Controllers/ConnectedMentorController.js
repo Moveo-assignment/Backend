@@ -17,7 +17,6 @@ const getIsMentor = async (req, res) => {
 
 const setIsMentor = async (req, res) => {
 	try {
-		console.log(req.body)
 		const { isConnected } = req.body // Extract isConnected from req.body
 
 		const mentors = await ConnectedMentor.find({})
