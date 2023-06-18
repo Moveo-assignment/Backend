@@ -1,5 +1,4 @@
 ConnectedMentor = require("../Models/ConnectedMentor")
-const mongoose = require("mongoose")
 
 const createConnectedMentor = async (req, res) => {
 	const state = true
@@ -9,19 +8,18 @@ const createConnectedMentor = async (req, res) => {
 	} catch (error) {}
 }
 
-const getCurrentState = async (req, res) => {
+const getIsMentor = async (req, res) => {
 	try {
 		const state = await ConnectedMentor.find({})
 		res.status(200).json(state[0].isConnected)
 	} catch (error) {}
 }
 
-const setCurrentState = async (req, res) => {
-	console.log("I'm here at the backend")
+const setIsMentor = async (req, res) => {
 	try {
 		console.log(req.body)
 		const { isConnected } = req.body // Extract isConnected from req.body
-		console.log(isConnected)
+
 		const mentors = await ConnectedMentor.find({})
 
 		mentors[0].isConnected = isConnected
@@ -30,9 +28,9 @@ const setCurrentState = async (req, res) => {
 
 		res.status(200).json({ message: "State updated successfully" })
 	} catch (error) {
-		console.error("Error setCurrentState:", error)
+		console.error("Error setIsMentor:", error)
 		res.status(500).json({ error: "Internal server error" })
 	}
 }
 
-module.exports = { createConnectedMentor, getCurrentState, setCurrentState }
+module.exports = { createConnectedMentor, getIsMentor, setIsMentor }

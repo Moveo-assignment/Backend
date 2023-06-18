@@ -1,12 +1,12 @@
 const CodeBlock = require("../Models/CodeBlock")
-const mongoose = require("mongoose")
 
 const createCodeBlock = async (req, res) => {
-	const title = "hi"
+	const title = "Two Sum"
 	const code = "hello world!"
+	const solution = "bye world!"
 
 	try {
-		const codeBlock = await CodeBlock.create({ title, code })
+		const codeBlock = await CodeBlock.create({ title, code, solution })
 		res.status(200).json(codeBlock)
 	} catch (err) {}
 }

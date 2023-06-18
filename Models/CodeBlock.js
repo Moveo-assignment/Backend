@@ -9,6 +9,10 @@ const codeBlockSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	solution: {
+		type: String,
+		required: false,
+	},
 })
 
 const CodeBlock = mongoose.model("CodeBlock", codeBlockSchema)
