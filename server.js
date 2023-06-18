@@ -19,7 +19,6 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
 	socket.on("join_room", (room) => {
-		console.log("someone joined the room", room.title)
 		socket.join(room.id)
 	})
 
