@@ -18,10 +18,13 @@ const io = new Server(server, {
 })
 
 io.on("connection", (socket) => {
-	console.log(`user connected: ${socket.id}`)
+	socket.on("join_room", (room) => {
+		console.log("someone joined the room", room.title)
+		socket.join(room.id)
+	})
+
 	socket.on("update_code", (data) => {
-		console.log("Code from student: " + data)
-		socket.broadcast.emit("receive_changed_code", data)
+		socket.to(data.roomId).emit("receive_changed_code", data.code)
 	})
 })
 

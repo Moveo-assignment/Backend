@@ -2,14 +2,14 @@ const express = require("express")
 
 const {
 	createConnectedMentor,
-	getCurrentState,
-	setCurrentState,
+	getIsMentor,
+	setIsMentor,
 } = require("../Controllers/ConnectedMentorController")
 
 const router = express.Router()
 
 router.get("/createConnectedMentor", createConnectedMentor)
-router.get("/getCurrentState", getCurrentState)
-router.post("/setCurrentState", setCurrentState)
+router.get("/getIsMentor", getIsMentor)
+router.post("/setIsMentor", setIsMentor)
 
 module.exports = router
