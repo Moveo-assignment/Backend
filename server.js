@@ -25,6 +25,9 @@ io.on("connection", (socket) => {
 	socket.on("update_code", (data) => {
 		socket.to(data.roomId).emit("receive_changed_code", data.code)
 	})
+	socket.on(connect_error, (err) => {
+		console.log(`connect_error due to ${err.message}`)
+	})
 })
 
 server.listen(3001, () => {
